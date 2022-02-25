@@ -1,0 +1,36 @@
+<%- include('templates/cabecera' , {tituloWeb:"Pagina de Inicio"}) %>
+<body>
+    
+    <div class="container">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+                  <!--mascotas Vamos a renderizar es decir traer en forma dinamica
+                   los datos del arrayMascotas que esta en Mascotas.js-->
+                <% if (arrayMascotas.length > 0) { %>
+                    <% arrayMascotas.forEach(mascota => { %>
+                        <tr>
+                            <th scope="row"><%= mascota.id %> </th>
+                            <td><%= mascota.nombre %></td>
+                            <td><%= mascota.descripcion %></td>
+                            <td>@mdo</td>
+                          </tr>
+                    <% }) %>
+                   <% } %>
+             
+            </tbody>
+          </table>
+      
+       
+
+    </div>
+    
+</body>
