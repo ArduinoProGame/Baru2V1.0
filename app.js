@@ -1,5 +1,6 @@
 //Ref: https://www.youtube.com/watch?v=VmH4tPbbDsM&list=PLPl81lqbj-4IEnmCXEJeEXPepr8gWtsl6&index=7
-
+//Deploy en heroku usando como repositorio Git.
+//https://www.youtube.com/watch?v=6WcBSNxEow8&list=PLPl81lqbj-4IEnmCXEJeEXPepr8gWtsl6
 const http = require('express');
 
 const app = http();
