@@ -7,6 +7,18 @@ const app = http();
 
 const port = process.env.PORT || 3000;
 
+//Conexion a Base de Datos
+const mongo = require('mongoose');
+
+
+const user= 'devuser';
+const password= 'Pegaso_22';
+const dbname= 'petShop';
+const uri= `mongodb+srv://${user}:${password}@cluster0.gzlj2.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+//bQffatxgzNeLCSEZ
+mongo.connect(uri,{useNewUrlParser:true,useUnifiedTopology: true})
+.then(()=>console.log("Base de dato conectada"))
+.catch(e=>console.log(e))
 
 app.set('view engine', 'ejs'); //Le dice que motor de plantilla va a usar la app
 app.set('views', __dirname + '/views') //Le dice que las vistas(views) o archivos dinamicos estaran en la carpeta views
