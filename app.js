@@ -3,6 +3,8 @@
 //https://www.youtube.com/watch?v=6WcBSNxEow8&list=PLPl81lqbj-4IEnmCXEJeEXPepr8gWtsl6
 const http = require('express');
 
+require('dotenv').config();
+
 const app = http();
 
 const port = process.env.PORT || 3000;
@@ -10,11 +12,12 @@ const port = process.env.PORT || 3000;
 //Conexion a Base de Datos
 const mongo = require('mongoose');
 
-
-const user= 'devuser';
-const password= 'Pegaso_22';
-const dbname= 'petShop';
-const uri= `mongodb+srv://${user}:${password}@cluster0.gzlj2.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+/*Las credenciales de USER,PASSWORD y DBNAME las lee del archivo .env que esta en esta maquina
+  Para que funcione al desplegar en heroku debemos estas mismas credenciales configurarlas en el
+  hosting que es heroku para esto el archivo .env tiene que ser ignorado en .gitignore esto
+  significa que cuando se despliega este proyecto en heroku las variables de entorno no son subidas
+  al hosting y debemos estas mismas variables de .env configurarlas en heroku*/
+const uri= `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.gzlj2.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 //bQffatxgzNeLCSEZ
 mongo.connect(uri,{useNewUrlParser:true,useUnifiedTopology: true})
 .then(()=>console.log("Base de dato conectada"))
